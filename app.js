@@ -21,7 +21,7 @@ db.connect((err)=>{
 const app= express();
 
 // Create DB
-app.get('createdb',(req,res)=>{
+app.get('/createdb',function (req,res){
     console.log("APP GET -----> createdb ");
     let sql = 'CREATE DATABASE nodemysql;';
     db.query(sql,(err, result)=>{
@@ -37,10 +37,14 @@ app.get('createdb',(req,res)=>{
 })
 
 // Create DB
-app.get('hello',(req,res)=>{
+app.get('/hello',function (req,res){
     console.log("APP GET -----> HELLO ");
     res.send("Hello");
 
+})
+
+app.get('/people', function (req, res) {
+    res.send('hello');
 })
 
 
